@@ -1,7 +1,13 @@
 <script lang="ts">
-	import '../app.css';
+    import { onMount } from 'svelte';
+    import { goto } from '$app/navigation';
+    export let data: { setupComplete: boolean };
 
-	let { children } = $props();
+    onMount(() => {
+        if (!data.setupComplete && window.location.pathname !== '/setup') {
+            goto('/setup');
+        }
+    });
 </script>
 
-{@render children()}
+<slot />
