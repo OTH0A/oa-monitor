@@ -1,12 +1,23 @@
--- Resource Metadata
 fx_version 'cerulean'
-games'gta5'
+game 'gta5'
 
-author 'John Doe <j.doe@example.com>'
-description '...'
-version '0.0.1'
 
--- What to run
-client_scripts './client/main.lua'
+description 'OA Monitor - Serveur Control & Monitoring Panel'
 
-server_script './server/main.lua'
+
+client_scripts {
+    'client/*.lua'
+}
+
+server_scripts {
+    --'@oxmysql/lib/MySQL.lua', -- si tu utilises MySQL plus tard
+    'server/*.lua'
+}
+
+shared_scripts {
+    'shared/*.lua'
+}
+
+files {
+    'html/**',
+}
